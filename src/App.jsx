@@ -22,7 +22,7 @@ export default function App() {
   useEffect(() => {
     const root = document.documentElement;
     
-    // Dynamic Favicon Update: logo-light in dark mode, logo-dark in light mode
+    // Dynamic Favicon Update from uploaded icon
     let faviconLink = document.querySelector("link[rel*='icon']");
     if (!faviconLink) {
       faviconLink = document.createElement('link');
@@ -33,11 +33,11 @@ export default function App() {
     if (theme === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
-      faviconLink.href = '/logo-dark.png';
+      faviconLink.href = '/favicon-dark.png';
     } else {
       root.classList.add('light');
       root.classList.remove('dark');
-      faviconLink.href = '/logo-light.png';
+      faviconLink.href = '/favicon-light.png';
     }
   }, [theme]);
 
