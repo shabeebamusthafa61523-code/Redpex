@@ -9,6 +9,7 @@ import ProjectsPortfolio from './components/ProjectsPortfolio';
 import ComplianceSection from './components/ComplianceSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import { X } from 'lucide-react';
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
   useEffect(() => {
     const root = document.documentElement;
     
-    // Dynamic Favicon Update from uploaded icon
+    // Dynamic Favicon Update
     let faviconLink = document.querySelector("link[rel*='icon']");
     if (!faviconLink) {
       faviconLink = document.createElement('link');
@@ -69,6 +70,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer theme={theme} />
+
+      {/* Floating Scroll to Top Button */}
+      <ScrollToTop theme={theme} />
 
       {/* Global AMC Quote Request Modal Dialog */}
       {quoteModalOpen && (

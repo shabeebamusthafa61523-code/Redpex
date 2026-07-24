@@ -31,7 +31,7 @@ export default function Header({ theme, onToggleTheme, onOpenQuoteModal }) {
   }, [lastScrollY]);
 
   const navLinks = [
-    { name: 'Story', href: '#story' },
+    { name: 'About', href: '#story' },
     { name: 'Services', href: '#services' },
     { name: 'AMC Estimator', href: '#estimator' },
     { name: 'Partners', href: '#partners' },
@@ -55,12 +55,12 @@ export default function Header({ theme, onToggleTheme, onOpenQuoteModal }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Minimalist Logo */}
+          {/* Logo */}
           <a href="#" className="flex items-center group">
             <Logo theme={theme} size="medium" />
           </a>
 
-          {/* Minimalist Desktop Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -77,12 +77,12 @@ export default function Header({ theme, onToggleTheme, onOpenQuoteModal }) {
             ))}
           </nav>
 
-          {/* Minimalist Right Action Group */}
+          {/* Right Action Group */}
           <div className="hidden sm:flex items-center gap-4">
             
             <a
               href="tel:+919633563340"
-              className={`flex items-center gap-2 text-xs font-medium transition-colors ${
+              className={`flex items-center gap-2 text-xs font-semibold transition-colors ${
                 isDark ? 'text-slate-300 hover:text-redpex-red' : 'text-slate-700 hover:text-redpex-red'
               }`}
             >

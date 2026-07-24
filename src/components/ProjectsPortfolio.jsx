@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 import { PRESTIGIOUS_PROJECTS } from '../data/companyData';
-import { MapPin, ArrowUpRight } from 'lucide-react';
+import { MapPin, ArrowUpRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function ProjectsPortfolio({ theme }) {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [showAll, setShowAll] = useState(false);
   const isDark = theme === 'dark';
 
-  const filters = ['All', 'Space & Defense', 'Infrastructure', 'Industrial & Manufacturing', 'Healthcare', 'Commercial & Malls', 'Residential Towers'];
+  const filters = ['All', 'Space & Defense', 'Infrastructure',  'Healthcare', 'Commercial & Malls', 'Residential Towers'];
 
   const filteredProjects = activeFilter === 'All'
     ? PRESTIGIOUS_PROJECTS
     : PRESTIGIOUS_PROJECTS.filter(p => p.industry.toLowerCase().includes(activeFilter.toLowerCase()) || (activeFilter === 'Space & Defense' && (p.industry.includes('Defense') || p.industry.includes('Space'))));
+
+  // Display only 6 projects by default unless showAll is true
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
+
+  const handleFilterChange = (flt) => {
+    setActiveFilter(flt);
+    setShowAll(false); // Reset to 6 items when filter changes
+  };
 
   return (
     <section id="projects" className={`py-20 border-t transition-colors duration-300 ${
@@ -33,7 +42,7 @@ export default function ProjectsPortfolio({ theme }) {
           {filters.map((flt) => (
             <button
               key={flt}
-              onClick={() => setActiveFilter(flt)}
+              onClick={() => handleFilterChange(flt)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all ${
                 activeFilter === flt
                   ? 'bg-redpex-red text-white'
@@ -47,9 +56,9 @@ export default function ProjectsPortfolio({ theme }) {
           ))}
         </div>
 
-        {/* Minimal Grid */}
+        {/* Minimal Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filteredProjects.map((proj) => (
+          {displayedProjects.map((proj) => (
             <div
               key={proj.id}
               className={`p-6 rounded-2xl border flex flex-col justify-between transition-all hover:-translate-y-1 ${
@@ -97,6 +106,23 @@ export default function ProjectsPortfolio({ theme }) {
             </div>
           ))}
         </div>
+
+        {/* Minimal See More / Show Less Button */}
+        {filteredProjects.length > 6 && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full border text-xs font-outfit font-bold uppercase tracking-wider transition-all duration-200 hover:scale-105 active:scale-95 ${
+                isDark 
+                  ? 'bg-slate-900 border-slate-700 text-slate-200 hover:border-redpex-red hover:text-white' 
+                  : 'bg-white border-slate-300 text-slate-800 hover:border-redpex-red hover:text-redpex-red shadow-sm'
+              }`}
+            >
+              <span>{showAll ? 'Show Less Projects' : 'See More Projects'}</span>
+              {showAll ? <ChevronUp className="w-4 h-4 text-redpex-red" /> : <ChevronDown className="w-4 h-4 text-redpex-red" />}
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

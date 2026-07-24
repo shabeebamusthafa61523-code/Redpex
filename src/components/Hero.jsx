@@ -14,14 +14,14 @@ export default function Hero({ theme, onOpenQuoteModal }) {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         
-        {/* Minimal Location Badge */}
+        {/* Clean Location Badge */}
         <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-8 transition-colors ${
           isDark 
             ? 'bg-slate-900/80 border border-slate-800 text-slate-300' 
             : 'bg-white/80 border border-slate-200 text-slate-700 shadow-xs'
         }`}>
           <MapPin className="w-3.5 h-3.5 text-redpex-red" />
-          <span>India • Saudi Arabia • Qatar</span>
+          <span>Kerala HQ • Pan-India Operations</span>
         </div>
 
         {/* Minimal Bold Headline */}
@@ -32,11 +32,11 @@ export default function Hero({ theme, onOpenQuoteModal }) {
           <span className="text-redpex-red">Uncompromising Safety.</span>
         </h1>
 
-        {/* Short One-Liner Subtitle */}
+        {/* Short Subtitle */}
         <p className={`max-w-xl mx-auto text-sm sm:text-base font-normal mb-10 ${
           isDark ? 'text-slate-400' : 'text-slate-600'
         }`}>
-          Turnkey fire engineering, clean agent suppression & Civil Defence NOC compliance.
+          Turnkey fire engineering, clean agent suppression & Kerala Fire NOC compliance.
         </p>
 
         {/* Two Minimal CTA Buttons */}

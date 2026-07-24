@@ -30,7 +30,7 @@ export default function ContactSection({ theme, isModal, onClose }) {
         {/* Section Header */}
         {!isModal && (
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold text-redpex-red uppercase tracking-widest block mb-2">Global Presence</span>
+            <span className="text-xs font-bold text-redpex-red uppercase tracking-widest block mb-2">Headquarters</span>
             <h2 className={`font-outfit font-black text-3xl sm:text-4xl uppercase tracking-tight ${
               isDark ? 'text-white' : 'text-slate-900'
             }`}>
@@ -39,28 +39,37 @@ export default function ContactSection({ theme, isModal, onClose }) {
           </div>
         )}
 
-        {/* Offices */}
+        {/* Office Location Card */}
         {!isModal && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+          <div className="max-w-2xl mx-auto mb-12">
             {LOCATIONS.map((loc, idx) => (
-              <div key={idx} className={`p-5 rounded-2xl border flex flex-col justify-between ${
+              <div key={idx} className={`p-6 rounded-2xl border flex flex-col justify-between ${
                 isDark ? 'bg-slate-900/40 border-slate-800' : 'bg-slate-50 border-slate-200'
               }`}>
                 <div>
                   <div className="text-xs font-bold text-redpex-red uppercase tracking-wider mb-1">{loc.country}</div>
-                  <h3 className={`font-outfit font-bold text-lg mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{loc.city}</h3>
+                  <h3 className={`font-outfit font-bold text-xl mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{loc.city}</h3>
                   <p className={`text-xs leading-relaxed mb-4 flex items-start gap-1.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                    <MapPin className="w-3.5 h-3.5 text-redpex-red shrink-0 mt-0.5" />
+                    <MapPin className="w-4 h-4 text-redpex-red shrink-0 mt-0.5" />
                     <span>{loc.address}</span>
                   </p>
                 </div>
 
-                <div className={`pt-3 border-t text-xs space-y-1 ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
-                  <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className="flex items-center gap-1.5 font-semibold text-redpex-red hover:underline">
-                    <Phone className="w-3.5 h-3.5" />
-                    <span>{loc.phone}</span>
+                <div className={`pt-3 border-t text-xs space-y-2.5 ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
+                  <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 font-semibold text-redpex-red hover:underline">
+                    <Phone className="w-4 h-4 text-redpex-red" />
+                    <strong className="text-base">{loc.phone}</strong>
                   </a>
-                  <div className={`text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{loc.email}</div>
+                  <div className={`flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                    <Mail className="w-3.5 h-3.5 text-redpex-red" />
+                    <span>{loc.email}</span>
+                  </div>
+                  {loc.contactPerson && (
+                    <div className={`flex items-center gap-2 pt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                      <User className="w-3.5 h-3.5 text-amber-500" />
+                      <span>{loc.contactPerson}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -75,7 +84,7 @@ export default function ContactSection({ theme, isModal, onClose }) {
             Request Proposal
           </h3>
           <p className={`text-xs text-center mb-6 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            Get in touch for AMC estimates, equipment supply, or Civil Defence NOC compliance.
+            Get in touch for AMC estimates, equipment supply, or Kerala Fire & Rescue Services NOC compliance.
           </p>
 
           {submitted ? (
@@ -132,6 +141,22 @@ export default function ContactSection({ theme, isModal, onClose }) {
                   }`}
                 />
               </div>
+
+              <select
+                value={formData.serviceType}
+                onChange={(e) => setFormData({...formData, serviceType: e.target.value})}
+                className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
+                  isDark ? 'bg-slate-950 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
+                }`}
+              >
+                <option value="AMC Maintenance">AMC Servicing & Maintenance</option>
+                <option value="Fire NOC">Kerala Fire NOC New / Renewal Liaisoning</option>
+                <option value="Water Sprinklers">Water Based Sprinklers & Hydrants</option>
+                <option value="Gas Suppression">Clean Agent Gas Suppression (FM200/NOVEC)</option>
+                <option value="Kitchen Hood">Wet Chemical Kitchen Hood System</option>
+                <option value="RETROTEC Test">RETROTEC Door Fan Integrity Test</option>
+                <option value="Fire Training">Staff Fire & Safety Hands-On Training</option>
+              </select>
 
               <textarea
                 rows="3"

@@ -3,20 +3,19 @@ export const COMPANY_INFO = {
   formerName: "Focus Fire & Safety Solutions",
   tagline: "Vigilant Fire Protection Engineering & Safety Solutions",
   motto: "Invest in Tomorrow, Practice Safety Today",
-  story: "Founded with an inspired passion for safeguarding lives and high-value assets, Redpex Fire & Safety (formerly Focus Fire & Safety Solutions) has grown into an international leader across India, Saudi Arabia, and Qatar. With over a decade of engineering excellence, we specialize in turnkey fire safety design, equipment supply, installation, testing, commissioning, and AMC servicing strictly compliant with NFPA, NBC, and Civil Defence codes.",
-  rebrandingReason: "Our evolution into Redpex represents enhanced vigilance and global standards. The new identity fuses Crimson Red (fire & emergency response), the inner white eye (constant 24/7 monitoring and watchfulness), and the solid black shield (strength, boldness, and ultimate structural protection).",
+  story: "Founded with an inspired passion for safeguarding lives and high-value assets, Redpex Fire & Safety (formerly Focus Fire & Safety Solutions) is a premier fire protection engineering leader based in Kerala, India. With over a decade of engineering excellence, we specialize in turnkey fire safety design, equipment supply, installation, testing, commissioning, and AMC servicing strictly compliant with NBC, IS:2190, and Kerala Fire & Rescue Services codes.",
   stats: [
     { value: "10+", label: "Years Engineering Legacy" },
     { value: "500+", label: "Turnkey Projects Protected" },
     { value: "40+", label: "Global Brand Partnerships" },
-    { value: "3", label: "International Offices (India, KSA, Qatar)" },
+    { value: "Pan-India", label: "Kerala HQ & India Footprint" },
     { value: "24/7", label: "Emergency Support & AMC Assistance" }
   ],
   certifications: [
-    "NFPA (National Fire Protection Association)",
+    "Kerala Fire & Rescue Services Approved",
     "NBC (National Building Code of India)",
-    "Saudi Civil Defence Approved",
-    "Kerala Fire and Rescue Services Approved",
+    "IS:2190 Fire Safety Standards",
+    "NFPA (National Fire Protection Association)",
     "UL Listed & FM Approved Systems",
     "ISI, CE, LPCB & OSHA Compliant"
   ]
@@ -55,7 +54,7 @@ export const SERVICES = [
     title: "Foam Protection & CO2 Systems",
     category: "Industrial Suppression",
     icon: "ShieldAlert",
-    description: "Specialized foam liquid tanks and proportioners designed for high-hazard flammable liquid fires in oil & gas or chemical facilities.",
+    description: "Specialized foam liquid tanks and proportioners designed for high-hazard flammable liquid fires in chemical and industrial facilities.",
     features: [
       "Foam Pre-Action Systems",
       "Foam Bladder Tanks & Ratio Flow Proportioners",
@@ -108,7 +107,7 @@ export const SERVICES = [
     title: "CCTV & Integrated Security Systems",
     category: "Surveillance",
     icon: "Camera",
-    description: "High-definition IP surveillance, thermal imaging cameras, and security monitoring integration for high-risk industrial facilities.",
+    description: "High-definition IP surveillance, thermal imaging cameras, and security monitoring integration for high-risk facilities.",
     features: [
       "4K HD IP Dome, Bullet & PTZ Security Cameras",
       "Thermal Fire Detection Cameras",
@@ -147,10 +146,10 @@ export const SERVICES = [
     title: "AMC Servicing & Fire NOC Renewal",
     category: "Maintenance & Compliance",
     icon: "Wrench",
-    description: "Periodic monthly/quarterly maintenance contracts and complete liaisoning with Kerala Fire & Rescue and Saudi Civil Defence for NOC compliance.",
+    description: "Periodic monthly/quarterly maintenance contracts and complete liaisoning with Kerala Fire & Rescue Services for Fire NOC compliance.",
     features: [
       "Periodic Monthly & Quarterly Inspection Schedules",
-      "Fire NOC New Issuance & Annual Renewal Liaisoning",
+      "Kerala Fire NOC New Issuance & Annual Renewal Liaisoning",
       "Immediate Replacement of Missing or Damaged Spares",
       "Detailed IS:2190 Inspection & Audit Service Reports"
     ]
@@ -194,7 +193,7 @@ export const PRESTIGIOUS_PROJECTS = [
     title: "Vikram Sarabhai Space Center (VSSC)",
     client: "ISRO / Govt of India",
     industry: "Space & Defense",
-    location: "Trivandrum, India",
+    location: "Trivandrum, Kerala",
     type: "Turnkey Fire Suppression & High Hazard Safety",
     description: "Designed and implemented critical fire protection infrastructure for national space launch research facilities.",
     tag: "High Security"
@@ -221,16 +220,6 @@ export const PRESTIGIOUS_PROJECTS = [
   },
   {
     id: 4,
-    title: "Savola Foods Industrial Complex",
-    client: "Savola Foods",
-    industry: "Industrial & Manufacturing",
-    location: "Jeddah, Saudi Arabia",
-    type: "Deluge System, Foam Protection & Gas Suppression",
-    description: "Massive industrial processing facility safety engineering strictly adhering to KSA Civil Defence standards.",
-    tag: "Saudi KSA"
-  },
-  {
-    id: 5,
     title: "KSEB Pallivasal Hydroelectric Station",
     client: "Kerala State Electricity Board",
     industry: "Power & Energy",
@@ -240,7 +229,7 @@ export const PRESTIGIOUS_PROJECTS = [
     tag: "Power Plant"
   },
   {
-    id: 6,
+    id: 5,
     title: "Gimcare Hospital",
     client: "Gimcare Health",
     industry: "Healthcare",
@@ -250,7 +239,7 @@ export const PRESTIGIOUS_PROJECTS = [
     tag: "Healthcare"
   },
   {
-    id: 7,
+    id: 6,
     title: "MES Medical College & Hospital",
     client: "MES Group",
     industry: "Healthcare & Education",
@@ -260,17 +249,7 @@ export const PRESTIGIOUS_PROJECTS = [
     tag: "Campus"
   },
   {
-    id: 8,
-    title: "Pepsi Bottling Facility",
-    client: "PepsiCo Jeddah",
-    industry: "Industrial & Manufacturing",
-    location: "Jeddah, Saudi Arabia",
-    type: "Industrial High Expansion Foam & Pump House",
-    description: "Turnkey fire pump house installation and automated warehouse protection.",
-    tag: "Saudi KSA"
-  },
-  {
-    id: 9,
+    id: 7,
     title: "Harihar Filmcity 3-Screen 4K Cinema",
     client: "Harihar Group",
     industry: "Commercial & Malls",
@@ -280,27 +259,17 @@ export const PRESTIGIOUS_PROJECTS = [
     tag: "Entertainment"
   },
   {
-    id: 10,
+    id: 8,
     title: "Bhima Gold Showroom",
     client: "Bhima Jewellery",
     industry: "Commercial & Malls",
-    location: "Malappuram",
+    location: "Malappuram, Kerala",
     type: "Clean Agent FM200 & CCTV Security",
     description: "High-value retail security, VESDA aspirating smoke detection, and gas suppression.",
     tag: "Luxury Retail"
   },
   {
-    id: 11,
-    title: "Home Centre / Hugo Boss / Nike Retail Malls",
-    client: "Landmark Group / Retail Brands",
-    industry: "Commercial & Malls",
-    location: "Jeddah & Riyadh, Saudi Arabia",
-    type: "Commercial Retail Fire NOC & Sprinkler Protection",
-    description: "Multi-brand international commercial mall safety compliance.",
-    tag: "International Retail"
-  },
-  {
-    id: 12,
+    id: 9,
     title: "Skyline Topaz & Nandanm Luxury Apartments",
     client: "Skyline Builders",
     industry: "Residential Towers",
@@ -308,35 +277,27 @@ export const PRESTIGIOUS_PROJECTS = [
     type: "High-Rise Residential Hydrant & Booster Pump Set",
     description: "Multi-story residential tower fire pumps, wet risers, and smoke evacuation.",
     tag: "High-Rise Towers"
+  },
+  {
+    id: 10,
+    title: "Volkswagen Malappuram Showroom",
+    client: "Volkswagen",
+    industry: "Commercial & Malls",
+    location: "Malappuram, Kerala",
+    type: "Automobile Showroom Fire Alarm & Hydrant System",
+    description: "Commercial showroom protection adhering to IS standards.",
+    tag: "Automotive"
   }
 ];
 
 export const LOCATIONS = [
   {
-    country: "India",
-    city: "Malappuram (Head Office)",
+    country: "India (Headquarters)",
+    city: "Malappuram, Kerala",
     address: "1st Floor, Friends Tower, AK Road, Near Central School, Uphill / Downhill, Malappuram - 676505, Kerala, India",
-    phone: "+91 9633 563 340",
-    email: "info@redpexsafety.com",
+    phone: "+91 96335 63340",
+    email: "redpexfireandsafety@gmail.com",
     contactPerson: "Rafi Mohammed (Director - Training & Marketing)",
-    badge: "Global Headquarters"
-  },
-  {
-    country: "Saudi Arabia (KSA)",
-    city: "Jeddah Regional Office",
-    address: "Office No 353, Palestien Street, Near Traffic Police Station, Jeddah, Kingdom of Saudi Arabia",
-    phone: "+966 50 123 4567",
-    email: "ksa@redpexsafety.com",
-    contactPerson: "KSA Engineering Operations",
-    badge: "Civil Defence Licensed"
-  },
-  {
-    country: "Qatar",
-    city: "Doha Operations",
-    address: "Building Number 47, Zone 26, Street 930, P.O Box 9206, Doha, Qatar",
-    phone: "+974 44 888 999",
-    email: "qatar@redpexsafety.com",
-    contactPerson: "Gulf Projects Division",
-    badge: "Qatar Operations"
+    badge: "Head Office"
   }
 ];
