@@ -77,20 +77,20 @@ export default function App() {
       {/* Global AMC Quote Request Modal Dialog */}
       {quoteModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className={`border rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto ${
+          <div className={`border rounded-2xl max-w-lg w-full p-6 relative shadow-2xl overflow-hidden ${
             theme === 'dark' 
               ? 'bg-slate-900 border-slate-700 text-white' 
               : 'bg-white border-slate-200 text-slate-900'
           }`}>
             <button
               onClick={() => setQuoteModalOpen(false)}
-              className={`absolute top-6 right-6 p-2 rounded-full border transition-colors ${
+              className={`absolute top-4 right-4 p-1.5 rounded-full border transition-colors z-10 ${
                 theme === 'dark'
                   ? 'bg-slate-950 border-slate-700 text-slate-400 hover:text-white'
                   : 'bg-slate-100 border-slate-300 text-slate-600 hover:text-slate-900'
               }`}
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             <ContactSection theme={theme} isModal={true} onClose={() => setQuoteModalOpen(false)} />

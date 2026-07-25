@@ -19,6 +19,19 @@ export default function ContactSection({ theme, isModal, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    const whatsappNumber = '919633563340';
+    const text = `*New Proposal Request - Redpex Fire & Safety*
+
+*Name:* ${formData.name}
+*Company / Property:* ${formData.company}
+*Email:* ${formData.email}
+*Phone / WhatsApp:* ${formData.phone}
+*Service Requested:* ${formData.serviceType}
+*Project Details:* ${formData.message || 'N/A'}`;
+
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
   };
 
   return (
@@ -77,13 +90,15 @@ export default function ContactSection({ theme, isModal, onClose }) {
         )}
 
         {/* Minimal Form */}
-        <div className={`p-6 sm:p-8 rounded-2xl border ${
-          isDark ? 'bg-slate-900/60 border-slate-800' : 'bg-slate-50 border-slate-200'
-        }`}>
+        <div className={
+          isModal 
+            ? '' 
+            : `p-6 sm:p-8 rounded-2xl border ${isDark ? 'bg-slate-900/60 border-slate-800' : 'bg-slate-50 border-slate-200'}`
+        }>
           <h3 className={`font-outfit font-bold text-xl uppercase mb-1 text-center ${isDark ? 'text-white' : 'text-slate-900'}`}>
             Request Proposal
           </h3>
-          <p className={`text-xs text-center mb-6 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+          <p className={`text-xs text-center ${isModal ? 'mb-4' : 'mb-6'} ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
             Get in touch for AMC estimates, equipment supply, or Kerala Fire & Rescue Services NOC compliance.
           </p>
 
@@ -95,15 +110,15 @@ export default function ContactSection({ theme, isModal, onClose }) {
               <button onClick={() => setSubmitted(false)} className="px-4 py-1.5 rounded-lg bg-redpex-red text-white text-xs">Send Another</button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className={isModal ? "space-y-3" : "space-y-4"}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <input
                   type="text"
                   required
                   placeholder="Full Name *"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
+                  className={`w-full px-3.5 ${isModal ? 'py-2' : 'py-2.5'} rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
                     isDark ? 'bg-slate-950 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
                   }`}
                 />
@@ -113,20 +128,20 @@ export default function ContactSection({ theme, isModal, onClose }) {
                   placeholder="Company / Property *"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
+                  className={`w-full px-3.5 ${isModal ? 'py-2' : 'py-2.5'} rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
                     isDark ? 'bg-slate-950 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
                   }`}
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <input
                   type="email"
                   required
                   placeholder="Email Address *"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
+                  className={`w-full px-3.5 ${isModal ? 'py-2' : 'py-2.5'} rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
                     isDark ? 'bg-slate-950 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
                   }`}
                 />
@@ -136,7 +151,7 @@ export default function ContactSection({ theme, isModal, onClose }) {
                   placeholder="Phone / WhatsApp *"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
+                  className={`w-full px-3.5 ${isModal ? 'py-2' : 'py-2.5'} rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
                     isDark ? 'bg-slate-950 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
                   }`}
                 />
@@ -145,7 +160,7 @@ export default function ContactSection({ theme, isModal, onClose }) {
               <select
                 value={formData.serviceType}
                 onChange={(e) => setFormData({...formData, serviceType: e.target.value})}
-                className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
+                className={`w-full px-3.5 ${isModal ? 'py-2' : 'py-2.5'} rounded-xl border text-xs focus:outline-none focus:border-redpex-red ${
                   isDark ? 'bg-slate-950 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
                 }`}
               >
@@ -159,18 +174,18 @@ export default function ContactSection({ theme, isModal, onClose }) {
               </select>
 
               <textarea
-                rows="3"
+                rows={isModal ? "2" : "3"}
                 placeholder="Project Scope Details..."
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-redpex-red resize-none ${
+                className={`w-full px-3.5 ${isModal ? 'py-2' : 'py-2.5'} rounded-xl border text-xs focus:outline-none focus:border-redpex-red resize-none ${
                   isDark ? 'bg-slate-950 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
                 }`}
               ></textarea>
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl bg-redpex-red hover:bg-redpex-red-dark text-white font-outfit font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2"
+                className={`w-full ${isModal ? 'py-2.5' : 'py-3'} rounded-xl bg-redpex-red hover:bg-redpex-red-dark text-white font-outfit font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2`}
               >
                 <Send className="w-4 h-4" />
                 <span>Submit Inquiry</span>

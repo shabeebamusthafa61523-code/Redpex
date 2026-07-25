@@ -36,6 +36,34 @@ export default function AMCEstimator({ theme, onOpenQuoteModal }) {
 
   const estimatedInspectionsPerYear = propertyType === 'Hospital' || propertyType === 'Industrial' ? 12 : 4;
 
+  const handleRequestQuotation = () => {
+    const selectedPropLabel = propertyTypes.find(p => p.id === propertyType)?.label || propertyType;
+    const selectedSystemLabels = availableSystems
+      .filter(s => selectedSystems.includes(s.id))
+      .map(s => s.label)
+      .join('\n  • ');
+
+    const visitsText = estimatedInspectionsPerYear === 12 ? 'Monthly (12 Visits/Yr)' : 'Quarterly (4 Visits/Yr)';
+
+    const text = `*AMC & Fire NOC Quotation Request - Redpex Fire & Safety*
+
+*Property Type:* ${selectedPropLabel}
+*Built-Up Area:* ${area.toLocaleString()} Sq. Ft.
+
+*Systems Installed:*
+  • ${selectedSystemLabels}
+
+*Package Summary:*
+  • *Visits:* ${visitsText}
+  • *Staff Training:* 2 FREE Drills/Yr Included
+  • *Fire NOC:* Renewal Liaisoning Included
+
+Please provide a detailed AMC service quote and compliance plan for my premises.`;
+
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/919633563340?text=${encodedText}`, '_blank');
+  };
+
   return (
     <section id="estimator" className={`py-20 border-t transition-colors duration-300 ${
       isDark ? 'bg-redpex-dark border-slate-800/60' : 'bg-white border-slate-200/60'
@@ -148,7 +176,7 @@ export default function AMCEstimator({ theme, onOpenQuoteModal }) {
               </div>
 
               <button
-                onClick={onOpenQuoteModal}
+                onClick={handleRequestQuotation}
                 className="w-full py-3 rounded-xl bg-redpex-red hover:bg-redpex-red-dark text-white font-outfit font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
               >
                 <span>Request AMC Quotation</span>
