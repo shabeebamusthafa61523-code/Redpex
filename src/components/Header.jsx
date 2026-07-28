@@ -50,7 +50,7 @@ export default function Header({ theme, onToggleTheme, onOpenQuoteModal }) {
         ? isDark
           ? 'bg-redpex-dark/90 backdrop-blur-lg py-3 border-b border-slate-800/60 shadow-xl' 
           : 'bg-white/90 backdrop-blur-lg py-3 border-b border-slate-200/60 shadow-sm'
-        : 'bg-transparent py-5'
+        : 'bg-transparent py-3 sm:py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
