@@ -3,8 +3,8 @@ import React from 'react';
 export default function Logo({ theme = 'light', size = 'medium', className = '' }) {
   const isDark = theme === 'dark';
   
-  // Height scaling: mobile height (h-12 / 48px) and desktop height (sm:h-16)
-  const heightClass = size === 'large' ? 'h-16 sm:h-22' : size === 'small' ? 'h-10 sm:h-12' : 'h-12 sm:h-16';
+  // Height scaling: mobile height (h-14 / 56px) and desktop height (sm:h-16)
+  const heightClass = size === 'large' ? 'h-18 sm:h-22' : size === 'small' ? 'h-11 sm:h-12' : 'h-14 sm:h-16';
 
   return (
     <div className={`inline-flex items-center ${heightClass} ${className} cursor-pointer group`}>
