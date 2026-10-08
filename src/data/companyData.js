@@ -295,9 +295,8 @@ export const LOCATIONS = [
     country: "India (Headquarters)",
     city: "Malappuram, Kerala",
     address: "1st Floor, Friends Tower, AK Road, Near Central School, Uphill / Downhill, Malappuram - 676505, Kerala, India",
-    phone: "+91 96335 63340",
+    phone: "+91 98478 93706 / +91 96335 63340",
     email: "redpexfireandsafety@gmail.com",
-    contactPerson: "Rafi Mohammed (Director - Training & Marketing)",
     badge: "Head Office"
   }
 ];
